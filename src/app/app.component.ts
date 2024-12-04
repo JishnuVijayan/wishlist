@@ -12,10 +12,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   standalone: true,
 })
 export class AppComponent {
-  wishList = [
-    new WishItem('Secure a Internship', true),
-    new WishItem('Complete Engineering without backlogs', false),
-    new WishItem('Secure a good job'),
+  wishList: WishItem[] = [
+    // new WishItem('Secure a Internship', true),
+    // new WishItem('Complete Engineering without backlogs', false),
+    // new WishItem('Secure a good job'),
   ];
   title = 'wishlist';
 }
