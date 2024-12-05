@@ -56,15 +56,14 @@ export class AppComponent {
 
   filterText: String = '1';
 
-  visibleItems: WishItem[] = this.wishList;
-
-  filterWishes(value: any) {
+  get visibleItems(): WishItem[] {
+    let value = this.filterText;
     if (value === '1') {
-      this.visibleItems = this.wishList;
+      return this.wishList;
     } else if (value === '2') {
-      this.visibleItems = this.wishList.filter((item) => item.isComplete);
+      return this.wishList.filter((item) => item.isComplete);
     } else {
-      this.visibleItems = this.wishList.filter((item) => !item.isComplete);
+      return this.wishList.filter((item) => !item.isComplete);
     }
   }
 }
