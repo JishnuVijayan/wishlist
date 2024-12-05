@@ -9,3 +9,14 @@ display: block;
     align-items: center;
     min-height: 100vh;
 }
+
+.form-container {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+  }
+  
+  mat-form-field {
+    width: auto;
+    height: auto; 
+  }

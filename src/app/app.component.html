@@ -1,11 +1,20 @@
 <div class="parent">
   <h1>{{title}}</h1>
+  <div class="form-container">
+  <mat-form-field>
+    <mat-label>New Wish</mat-label>
+    <input matInput class="form" name="new-wish-text" [(ngModel)]="newWishText">
+  </mat-form-field>
+  <button mat-flat-button (click)="$event.preventDefault(); addNewWish()">Add Wish</button>
+</div>
 <div *ngIf="wishList.length === 0; else showItems">Currently there are no wishes</div>
 <ng-template #showItems>
+  <div class="checkbox-container">
   <mat-checkbox *ngFor="let item of wishList" 
   [checked]="item.isComplete"
   (click)="checkBox(item)"
   > {{item.wishText}}
   </mat-checkbox>
+</div>
 </ng-template>
 </div>
