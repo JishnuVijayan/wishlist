@@ -13,9 +13,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class AppComponent {
   wishList: WishItem[] = [
-    // new WishItem('Secure a Internship', true),
-    // new WishItem('Complete Engineering without backlogs', false),
-    // new WishItem('Secure a good job'),
+    new WishItem('Secure a Internship', true),
+    new WishItem('Complete Engineering without backlogs', false),
+    new WishItem('Secure a good job'),
   ];
-  title = 'wishlist';
+  title = 'Wishlist';
+  checkBox(item: WishItem) {
+    item.isComplete = !item.isComplete;
+    console.log(item);
+  }
 }
