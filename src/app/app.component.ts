@@ -6,7 +6,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatLabel } from '@angular/material/form-field';
 import { MatFormField } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-
+import {
+  MatButtonToggleGroup,
+  MatButtonToggle,
+} from '@angular/material/button-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-root',
   imports: [
@@ -15,6 +21,11 @@ import { FormsModule } from '@angular/forms';
     MatLabel,
     MatFormField,
     FormsModule,
+    MatButtonToggleGroup,
+    MatButtonToggle,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -22,9 +33,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   wishList: WishItem[] = [
-    // new WishItem('Secure a Internship', true),
-    // new WishItem('Complete Engineering without backlogs', false),
-    // new WishItem('Secure a good job'),
+    new WishItem('Secure a Internship', true),
+    new WishItem('Complete Engineering without backlogs', false),
+    new WishItem('Secure a good job'),
   ];
   title = 'Wishlist';
   checkBox(item: WishItem) {
@@ -40,6 +51,20 @@ export class AppComponent {
       document.querySelector<HTMLInputElement>(
         'input[name="new-wish-text"]'
       )!.value = '';
+    }
+  }
+
+  filterText: String = '1';
+
+  visibleItems: WishItem[] = this.wishList;
+
+  filterWishes(value: any) {
+    if (value === '1') {
+      this.visibleItems = this.wishList;
+    } else if (value === '2') {
+      this.visibleItems = this.wishList.filter((item) => item.isComplete);
+    } else {
+      this.visibleItems = this.wishList.filter((item) => !item.isComplete);
     }
   }
 }

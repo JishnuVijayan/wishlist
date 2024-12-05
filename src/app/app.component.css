@@ -13,10 +13,16 @@ display: block;
 .form-container {
     display: flex; 
     flex-direction: row; 
-    align-items: center; 
+    align-items: center;
+    gap: 10px;
   }
   
-  mat-form-field {
+  /* mat-form-field {
     width: auto;
-    height: auto; 
+    height: 60px;
+  } */
+
+  .toggle-group {
+    margin-bottom: 20px;
   }
+

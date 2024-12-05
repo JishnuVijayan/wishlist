@@ -1,20 +1,37 @@
 <div class="parent">
+
+
   <h1>{{title}}</h1>
+
+
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="filterText" (ngModelChange)="filterWishes($event)" class="toggle-group">
+    <mat-button-toggle value="1">All</mat-button-toggle>
+    <mat-button-toggle value="2">Completed</mat-button-toggle>
+    <mat-button-toggle value="3">Not completed</mat-button-toggle>
+  </mat-button-toggle-group>
+
+
   <div class="form-container">
   <mat-form-field>
     <mat-label>New Wish</mat-label>
     <input matInput class="form" name="new-wish-text" [(ngModel)]="newWishText">
   </mat-form-field>
-  <button mat-flat-button (click)="$event.preventDefault(); addNewWish()">Add Wish</button>
+  <button mat-flat-button (click)="$event.preventDefault(); addNewWish()" >Add Wish</button>
 </div>
-<div *ngIf="wishList.length === 0; else showItems">Currently there are no wishes</div>
+
+
+<div *ngIf="visibleItems.length === 0; else showItems">Currently there are no wishes</div>
+
+
 <ng-template #showItems>
   <div class="checkbox-container">
-  <mat-checkbox *ngFor="let item of wishList" 
+  <mat-checkbox *ngFor="let item of visibleItems" 
   [checked]="item.isComplete"
   (click)="checkBox(item)"
   > {{item.wishText}}
   </mat-checkbox>
 </div>
 </ng-template>
+
+
 </div>
