@@ -13,6 +13,7 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { WishListComponent } from './wish-list/wish-list.component';
 @Component({
   selector: 'app-root',
   imports: [
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    WishListComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -38,10 +40,6 @@ export class AppComponent {
     new WishItem('Secure a good job'),
   ];
   title = 'Wishlist';
-  checkBox(item: WishItem) {
-    item.isComplete = !item.isComplete;
-    console.log(item);
-  }
 
   newWishText = '';
   addNewWish() {

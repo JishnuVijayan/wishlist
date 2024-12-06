@@ -1,0 +1,12 @@
+<div *ngIf="wishes.length === 0; else showItems">Currently there are no wishes</div>
+
+
+<ng-template #showItems>
+  <div class="checkbox-container">
+  <mat-checkbox *ngFor="let item of wishes" 
+  [checked]="item.isComplete"
+  (click)="checkBox(item)"
+  > {{item.wishText}}
+  </mat-checkbox>
+</div>
+</ng-template>
