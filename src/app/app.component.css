@@ -1,5 +1,4 @@
 
-
 .parent {
     display: flex;
     flex-direction: column;
@@ -8,17 +7,7 @@
     min-height: 100vh;
 }
 
-.form-container {
-    display: flex; 
-    flex-direction: row; 
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* mat-form-field {
-    width: auto;
-    height: 60px;
-  } */
+
 
   .toggle-group {
     margin-bottom: 20px;

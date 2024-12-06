@@ -11,13 +11,15 @@
   </mat-button-toggle-group>
 
 
-  <div class="form-container">
+  <!-- <div class="form-container">
   <mat-form-field>
     <mat-label>New Wish</mat-label>
     <input matInput class="form" name="new-wish-text" [(ngModel)]="newWishText">
   </mat-form-field>
   <button mat-flat-button (click)="$event.preventDefault(); addNewWish()" >Add Wish</button>
-</div>
+</div> -->
+<add-wish-form (addWish)="wishList.push($event)"
+></add-wish-form>
 
 
 <wish-list [wishes]="visibleItems"></wish-list>

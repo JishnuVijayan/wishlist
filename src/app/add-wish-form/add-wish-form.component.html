@@ -1,0 +1,7 @@
+<div class="form-container">
+    <mat-form-field>
+      <mat-label>New Wish</mat-label>
+      <input matInput class="form" name="new-wish-text" [(ngModel)]="newWishText">
+    </mat-form-field>
+    <button mat-flat-button (click)="$event.preventDefault(); addNewWish()" >Add Wish</button>
+  </div>

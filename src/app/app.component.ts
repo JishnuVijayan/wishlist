@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 import { WishItem } from '../shared/wishlist/wishListItem';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatLabel } from '@angular/material/form-field';
-import { MatFormField } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {
   MatButtonToggleGroup,
@@ -14,13 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
 @Component({
   selector: 'app-root',
   imports: [
     CommonModule,
     MatCheckboxModule,
-    MatLabel,
-    MatFormField,
     FormsModule,
     MatButtonToggleGroup,
     MatButtonToggle,
@@ -28,6 +25,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
     MatIconModule,
     MatButtonModule,
     WishListComponent,
+    AddWishFormComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -40,17 +38,6 @@ export class AppComponent {
     new WishItem('Secure a good job'),
   ];
   title = 'Wishlist';
-
-  newWishText = '';
-  addNewWish() {
-    if (this.newWishText.trim()) {
-      this.wishList.push(new WishItem(this.newWishText));
-      this.newWishText = '';
-      document.querySelector<HTMLInputElement>(
-        'input[name="new-wish-text"]'
-      )!.value = '';
-    }
-  }
 
   filterText: String = '1';
 
